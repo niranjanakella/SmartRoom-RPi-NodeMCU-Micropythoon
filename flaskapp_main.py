@@ -58,7 +58,7 @@ def hello_world():
 
 @app.route('/ifttt', methods=['POST','GET'])
 def handler():
-    global SmartRoom_json
+    global SmartRoom_json, SmartRoom_State
     SmartRoom_State = request.get_data()
     SmartRoom_json['SmartRoom_State']=SmartRoom_State
     # print('Smart Room state is : {}'.format(SmartRoom_State))
@@ -66,7 +66,7 @@ def handler():
 
 @app.route('/SmartRoom')
 def SmartRoom():
-    return SmartRoom_json
+    return SmartRoom_State
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
