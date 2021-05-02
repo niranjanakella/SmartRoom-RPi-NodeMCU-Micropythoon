@@ -52,17 +52,17 @@ def hello_world():
 
 
     mqtt_client = connect_mqtt()
-    publish(mqtt_client,'Yo Bros This is Awesome')
+    publish(mqtt_client,'Yo SmartRoom')
 
-    return 'Hello from SmartRoom!'
+    return 'Hello from Macbook!'
 
 @app.route('/ifttt', methods=['POST','GET'])
 def handler():
     global SmartRoom_json
     SmartRoom_State = request.get_data()
     SmartRoom_json['SmartRoom_State']=SmartRoom_State
-    print('Smart Room state is : {}'.format(SmartRoom_State))
-    return ''
+    # print('Smart Room state is : {}'.format(SmartRoom_State))
+    return SmartRoom_json['SmartRoom_State']
 
 @app.route('/SmartRoom')
 def SmartRoom():
