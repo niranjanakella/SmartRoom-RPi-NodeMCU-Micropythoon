@@ -60,13 +60,15 @@ def hello_world():
 def handler():
     global SmartRoom_json, SmartRoom_State
     SmartRoom_State = request.get_data()
-    SmartRoom_json['SmartRoom_State']=SmartRoom_State
+    SmartRoom_json['SmartRoom_State']=SmartRoom_State.decode("utf-8")
+    mqtt_client = connect_mqtt()
+    publish(mqtt_client,SmartRoom_json['SmartRoom_State'])
     # print('Smart Room state is : {}'.format(SmartRoom_State))
     return SmartRoom_json
 
 @app.route('/SmartRoom')
 def SmartRoom():
-    return SmartRoom_State
+    return SmartRoom_json
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
