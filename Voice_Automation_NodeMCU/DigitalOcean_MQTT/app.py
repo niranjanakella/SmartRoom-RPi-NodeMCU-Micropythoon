@@ -4,14 +4,14 @@ from flask import request
 import paho.mqtt.client as mqtt_client
 import time
 
-broker = '68.183.84.109'
+broker = '167.71.238.19'
 port = 1883
 topic = "test"
 
 # generate client ID with pub prefix randomly
 client_id = 'localhost'
-username = 'SmartSecureRoom'
-password = 'SmartSecureRoom'
+username = '41SmartSecureRoom'
+password = '41SmartSecureRoom'
 
 SmartRoom_State = 'PowerOFF'
 SmartRoom_json= {'SmartRoom_State':SmartRoom_State}

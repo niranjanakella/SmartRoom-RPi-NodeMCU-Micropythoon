@@ -4,8 +4,10 @@ def implement():
     import WiFi_connect
     import gc
 
-    ssid ='wifi_extender_2GHz'
-    password = 'niranjan1'
+    # ssid ='wifi_extender_2GHz'
+    # password = 'niranjan1'
+    ssid = "Niranjan IPhone 11"
+    password = "nopassword2"
 
     WiFi_connect.do_connect(ssid,password)
 
@@ -22,7 +24,7 @@ def implement():
         global message
         message = msg.decode("utf-8")
     
-    client = MQTTClient(client_id, '64.227.178.47',1883,user = '41SmartSecureRoom', password = '41SmartSecureRoom')
+    client = MQTTClient(client_id, '167.71.238.19',1883,user = '41SmartSecureRoom', password = '41SmartSecureRoom')
     client.set_callback(sub_cb)
     client.connect()
     client.subscribe(topic)
